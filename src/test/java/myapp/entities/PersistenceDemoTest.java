@@ -11,8 +11,8 @@ import javax.persistence.Persistence;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PersistenceDemoTest {
@@ -21,8 +21,8 @@ public class PersistenceDemoTest {
     private static EntityManagerFactory emFactory;
     private static EntityManager em;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
         LOGGER.info("Starting memory database for unit tests.");
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
@@ -41,8 +41,8 @@ public class PersistenceDemoTest {
 //        }
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterClass
+    public static void tearDown() throws Exception {
         LOGGER.info("Shutting Hibernate JPA layer.");
         if (em != null)
             em.close();

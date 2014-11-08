@@ -3,6 +3,7 @@ package myapp.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cachorro {
@@ -11,6 +12,7 @@ public class Cachorro {
     @GeneratedValue
     private Long id;
 
+    @ManyToOne
     private Pessoa pessoa;
 
     public Cachorro(Long id, Pessoa pessoa) {
